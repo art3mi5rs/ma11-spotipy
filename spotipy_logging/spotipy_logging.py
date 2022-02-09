@@ -16,6 +16,10 @@ def directory_update_log(type, name, id):
     logging.info(f"{type} {name} -ID: {id} was added to the Spotipy directory")
 
 
+def new_loader_log(message):
+    logging.info(message)
+
+
 def playlist_error_log(message):
     logging.error(f"ERROR: {message}")
 
