@@ -19,15 +19,14 @@ class Directory:
             self.add_album()
 
         album = self.directory[artistID].albums[albumID]
-        # TODO: create song
-        # TODO: add song to album/artist
+        album.songs.append({song.songID: song})
         directory_update_log(Types.song, song.name, song.artistID)
 
-
     def add_artist(self, artist):
-        # TODO: write method code here
+        self.directory.append({artist.artistID: artist})
         directory_update_log(Types.artist, artist.name, artist.artistID)
 
     def add_album(self, artist, album):
-        # TODO: write method code here
+        albums_updating = self.directory[artist.artistID].albums
+        albums_updating.append({album.albumID: album})
         directory_update_log(Types.album, album.name, album.albumID)
