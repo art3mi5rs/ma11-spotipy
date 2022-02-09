@@ -8,3 +8,7 @@ class Artist(User):
         self.artistID = artistID
         self.status = Status.premium
         self.albums = albums
+
+
+    def _update_log(self):
+        self.logger.info(f"Artist {self.name} was added to Spotipy")
