@@ -2,13 +2,9 @@ from users.user import User, Status
 
 
 class Artist(User):
-    def __init__(self, name, artistID, albums, logger):
-        super(Artist, self).__init__(name, Status.premium, logger)
+    def __init__(self, name, artistID, albums):
         self.name = name
         self.artistID = artistID
         self.status = Status.premium
         self.albums = albums
-
-
-    def _update_log(self):
-        self.logger.info(f"Artist {self.name} was added to Spotipy")
+        super(Artist, self).__init__(self.name, self.status)

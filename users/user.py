@@ -9,10 +9,9 @@ class Status:
 
 
 class User:
-    def __init__(self, username, status, logger):
+    def __init__(self, username, status):
         self.username = username
         self.status = status
-        self.logger = logger
         self.playlists = []
         new_user_log(status)
 
@@ -26,7 +25,7 @@ class User:
             update_playlist_logs(self.username, name)
 
     def add_to_playlist(self, playlist, song):
-        if len(playlist) >= 20 & self.status == "Free":
+        if len(playlist) >= 20 & self.status == Status.free:
             raise StatusError()
         else:
             playlist.append({song.name: song})

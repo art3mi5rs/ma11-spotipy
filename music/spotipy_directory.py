@@ -1,3 +1,6 @@
+from spotipy_logging.spotipy_logging import directory_update_log
+
+
 class Types:
     def __init__(self):
         self.artist = "Artist"
@@ -6,9 +9,8 @@ class Types:
 
 
 class Directory:
-    def __init__(self, logger):
+    def __init__(self):
         self.directory = {}
-        self.logger = logger
 
     def add_song(self, artistID, albumID, song):
         if artistID not in self.directory:
@@ -19,14 +21,13 @@ class Directory:
         album = self.directory[artistID].albums[albumID]
         # TODO: create song
         # TODO: add song to album/artist
+        directory_update_log(Types.song, song.name, song.artistID)
+
 
     def add_artist(self, artist):
         # TODO: write method code here
-        self._update_log(Types.artist, artist.artistID)
+        directory_update_log(Types.artist, artist.name, artist.artistID)
 
     def add_album(self, artist, album):
         # TODO: write method code here
-        self._update_log(Types.album, album.albumID)
-
-    def _update_log(self, type, id):
-        self.logger.info(f"{type} -ID: {id} was added to the Spotipy directory")
+        directory_update_log(Types.album, album.name, album.albumID)
