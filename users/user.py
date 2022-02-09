@@ -1,4 +1,5 @@
 from exceptions.exceptions import PlaylistNameError, StatusError
+from spotipy_logging.spotipy_logging import new_user_log, update_playlist_logs
 
 
 class Status:
@@ -13,7 +14,7 @@ class User:
         self.status = status
         self.logger = logger
         self.playlists = []
-        self._update_log()
+        new_user_log(status)
 
     def add_playlist(self, name):
         if name in self.playlists:
@@ -21,15 +22,12 @@ class User:
         elif len(self.playlists) >= 5 & self.status == "Free":
             raise StatusError()
         else:
-            #TODO: create a new playlist
-            pass
+            self.playlists.append({name: []})
+            update_playlist_logs(self.username, name)
 
     def add_to_playlist(self, playlist, song):
         if len(playlist) >= 20 & self.status == "Free":
             raise StatusError()
         else:
-            #TODO: add song to playlist
-            pass
-
-    def _update_log(self):
-        self.logger.info(f"A new {self.status} user was created")
+            playlist.append({song.name: song})
+            update_playlist_logs(self.username, playlist, song)
