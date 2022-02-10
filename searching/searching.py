@@ -9,7 +9,7 @@ def get_song_popularity(song):
 
 
 def get_artists(directory, user):
-    artists = [artist.name for artist in directory.values]
+    artists = [artist.name for artist in directory.values()]
     if user.status is "Free":
         update_searching_log("artist", "Free")
         return artists[:5]
