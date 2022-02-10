@@ -33,7 +33,7 @@ class Directory:
                 self.add_artist(artist)
 
         artist_albums = self.directory[song.artists[0]['id']].albums
-        if song.album['id'] not in [album['id'] for album in artist_albums]:
+        if song.album['id'] not in [album.album_id for album in artist_albums.values()]:
             self.add_album(song.artists, song.album)
 
         album = self.directory[song.artists[0]['id']].albums[song.album['id']]
