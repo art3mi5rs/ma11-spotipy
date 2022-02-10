@@ -9,7 +9,7 @@ def main():
     directory = Directory()
     loader = JSONLoader(directory)
     user = User("art3mis", Status().free)
-    song_imports = 'C:\\Users\\User\\Shachaf-Repos\\Spotipy\\songs'
+    song_imports = 'songs'
     imports = Path(song_imports).glob('*')
 
     for file in imports:
