@@ -33,6 +33,6 @@ class Directory:
         if song.album['id'] not in self.directory[song.artists[0]['id']].albums.album_id:
             self.add_album(song.artists, song.album)
 
-        album = self.directory[song.artists[0]['id']].albums[song.album]
+        album = self.directory[song.artists[0]['id']].albums[song.album.album_id]
         album.songs.append({song.song_id: song})
         directory_update_log(Types.song, song.name, song.artists)
