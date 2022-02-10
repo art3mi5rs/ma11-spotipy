@@ -1,5 +1,6 @@
 import json
 
+from loading.config_parser import get_loader_message
 from loading.loader import Loader
 from music.song import Song
 
@@ -7,7 +8,7 @@ from music.song import Song
 class JSONLoader(Loader):
     def __init__(self, directory):
         self.directory = directory
-        super(JSONLoader, self).__init__("A new JSONLoader was created", self.directory)
+        super(JSONLoader, self).__init__(get_loader_message(), self.directory)
 
     def load(self, file):
         song_file = open(file)

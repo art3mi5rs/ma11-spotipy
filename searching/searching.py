@@ -1,5 +1,6 @@
 from spotipy_logging.spotipy_logging import update_searching_log
 from users.artist import Artist
+from users.user import User
 from music.album import Album
 from music.song import Song
 

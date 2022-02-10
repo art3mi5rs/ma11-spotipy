@@ -47,6 +47,6 @@ def get_loader_message():
     return parser['messages']['json_loader_message']
 
 
-def get_song_identifier():
+def get_status_message():
     parser = _init()
-    return parser['identifiers']['song_track']
+    return parser['messages']['status_error_message']

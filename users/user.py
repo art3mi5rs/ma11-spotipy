@@ -1,11 +1,12 @@
 from exceptions.exceptions import PlaylistNameError, StatusError
+from loading.config_parser import get_free_status_val, get_premium_status_val, get_playlist_message
 from spotipy_logging.spotipy_logging import new_user_log, update_playlist_logs
 
 
 class Status:
     def __init__(self):
-        self.free = "Free"
-        self.premium = "Premium"
+        self.free = get_free_status_val()
+        self.premium = get_premium_status_val()
 
 
 class User:
@@ -17,7 +18,7 @@ class User:
 
     def add_playlist(self, name):
         if name in self.playlists:
-            raise PlaylistNameError("This playlist already exists")
+            raise PlaylistNameError(get_playlist_message())
         elif len(self.playlists) >= 5 & self.status == Status().free:
             raise StatusError()
         else:

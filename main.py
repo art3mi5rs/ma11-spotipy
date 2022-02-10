@@ -1,3 +1,4 @@
+from loading.config_parser import get_import_path
 from loading.json_loader import JSONLoader
 from music.spotipy_directory import Directory
 from searching.searching import get_artists
@@ -9,8 +10,7 @@ def main():
     directory = Directory()
     loader = JSONLoader(directory)
     user = User("art3mis", Status().free)
-    song_imports = 'songs'
-    imports = Path(song_imports).glob('*')
+    imports = Path(get_import_path()).glob('*')
 
     for file in imports:
         loader.load(file)

@@ -1,3 +1,4 @@
+from loading.config_parser import get_artist_val, get_album_val, get_song_val
 from music.album import Album
 from spotipy_logging.spotipy_logging import directory_update_log
 from users.artist import Artist
@@ -5,9 +6,9 @@ from users.artist import Artist
 
 class Types:
     def __init__(self):
-        self.artist = "Artist"
-        self.album = "Album"
-        self.song = "Song"
+        self.artist = get_artist_val()
+        self.album = get_album_val()
+        self.song = get_song_val()
 
 
 class Directory:

@@ -1,3 +1,4 @@
+from loading.config_parser import get_status_message
 from spotipy_logging.spotipy_logging import playlist_error_log, status_error_log
 
 
@@ -11,4 +12,4 @@ class PlaylistNameError(ValueError):
 class StatusError(RuntimeError):
     def __init__(self):
         status_error_log()
-        super(StatusError, self).__init__("Invalid action for status level")
+        super(StatusError, self).__init__(get_status_message())
