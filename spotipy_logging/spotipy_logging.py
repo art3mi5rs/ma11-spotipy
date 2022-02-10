@@ -1,19 +1,15 @@
 import logging
 
-from users.user import User
-from users.artist import Artist
 
-
-
-def new_user_log(user):
-    logging.info(f"{user.username}, a {user.status} user was created")
+def new_user_log(username, status):
+    logging.info(f"{username}, a {status} user was created")
 
 
 def update_playlist_logs(username, playlist, song=None):
     if song is None:
         logging.info(f"{username} created the new playlist: {playlist}")
     else:
-        logging.info(f"{username} added {song.name} to the playlist {playlist}")
+        logging.info(f"{username} added {song} to the playlist {playlist}")
 
 
 def directory_update_log(type, name, id):

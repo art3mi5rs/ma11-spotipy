@@ -13,7 +13,7 @@ class User:
         self.username = username
         self.status = status
         self.playlists = []
-        new_user_log(status)
+        new_user_log(self.username, self.status)
 
     def add_playlist(self, name):
         if name in self.playlists:
@@ -29,4 +29,4 @@ class User:
             raise StatusError()
         else:
             playlist.append({song.name: song})
-            update_playlist_logs(self.username, playlist, song)
+            update_playlist_logs(self.username, playlist, song.name)
