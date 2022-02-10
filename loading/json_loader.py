@@ -14,7 +14,6 @@ class JSONLoader(Loader):
         song_data = json.load(song_file)
         album_data = song_data['track']['album']
         artists_data = song_data['track']['artists']
-        #artist_ids = [artist_data['id'] for artist_data in artists_data]
         song_id = song_data['track']['id']
         song_name = song_data['track']['name']
         song_popularity = song_data['track']['popularity']
