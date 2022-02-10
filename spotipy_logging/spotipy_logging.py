@@ -1,5 +1,9 @@
 import logging
 
+from users.user import User
+from users.artist import Artist
+
+
 
 def new_user_log(user):
     logging.info(f"{user.username}, a {user.status} user was created")
