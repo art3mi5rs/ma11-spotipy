@@ -18,14 +18,14 @@ class User:
     def add_playlist(self, name):
         if name in self.playlists:
             raise PlaylistNameError("This playlist already exists")
-        elif len(self.playlists) >= 5 & self.status == "Free":
+        elif len(self.playlists) >= 5 & self.status == Status().free:
             raise StatusError()
         else:
             self.playlists.append({name: []})
             update_playlist_logs(self.username, name)
 
     def add_to_playlist(self, playlist, song):
-        if len(playlist) >= 20 & self.status == Status.free:
+        if len(playlist) >= 20 & self.status == Status().free:
             raise StatusError()
         else:
             playlist.append({song.name: song})

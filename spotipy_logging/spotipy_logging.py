@@ -2,10 +2,12 @@ import logging
 
 
 def new_user_log(username, status):
+    logging.basicConfig(level=logging.DEBUG)
     logging.info(f"{username}, a {status} user was created.")
 
 
 def update_playlist_logs(username, playlist, song=None):
+    logging.basicConfig(level=logging.DEBUG)
     if song is None:
         logging.info(f"{username} created the new playlist: {playlist}.")
     else:
@@ -13,14 +15,17 @@ def update_playlist_logs(username, playlist, song=None):
 
 
 def directory_update_log(type, name, id):
+    logging.basicConfig(level=logging.DEBUG)
     logging.info(f"{type} {name} -ID: {id} was added to the Spotipy directory.")
 
 
 def new_loader_log(message):
+    logging.basicConfig(level=logging.DEBUG)
     logging.info(message)
 
 
 def update_searching_log(search, user_status):
+    logging.basicConfig(level=logging.DEBUG)
     logging.info(f"A {user_status} user completed a {search} search.")
 
 
