@@ -50,3 +50,8 @@ def get_loader_message():
 def get_status_message():
     parser = _init()
     return parser['messages']['status_error_message']
+
+
+def get_exit_message():
+    parser = _init()
+    return parser['messages']['menu_exit_message']
